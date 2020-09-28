@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home - Towns</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			top:0;
+		}
+		.topic {
+			padding-top: 30px;
+			height: 100px;
+			font-size:20px;
+			color: blue;
+			background-color:;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="static/bootstrap-4.5.0-dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="static/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="static/bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<hr>
+		<h2 class="text-info"><b>Smart Weather Forecast Service</b></h2>
+		<hr>
+	</div>
+	<div class="container">
+		<form method="POST">
+		<div class="d-flex flex-row">
+			<div class="">
+				<h2>{{ town }} City</h2>
+			</div>
+			
+			<div class="input-group mb-3 ml-auto" style="width: 30%">
+			  <input type="text" name="search_city" class="form-control" placeholder="Enter the city name...">
+			  <div class="input-group-append">
+			    <button class="btn btn-success" type="submit">Search</button>
+			  </div>
+			</div>
+		</div>
+	</form>
+	</div>
+	<div class="container">
+		
+		<table class="table table-striped">
+			<tr>
+				<th>Date time</th>
+				<th>Temperature</th>
+				<th>Humidity</th>
+				<th>Pressure</th>
+				<th>Wind Speed</th>
+				<th>Wind Direction</th>
+				<th>Description</th>
+				<th>Icon</th>
+			</tr>
+
+			<tbody>
+
+				{% for x in range(0, 10) %}
+				<tr>
+					<th>Tomorrow @ 1200 Hrs</th>
+					<td>{{ temp_preds[x] }}°C</td>
+					<td>{{ humid_preds[x] }}%</td>
+					<td>{{ press_preds[x] }}pa</td>
+					<td>{{ windspd_preds[x] }} KM/PH</td>
+					<td>{{ winddir_preds[x] }}°</td>
+					<td>{{ desc_preds[x] }}</td>
+					<td><img src="static/images/{{ icons_preds[x] }}" width="30px" height="30px"></td>
+				</tr>
+				{% endfor %}
+
+			</tbody>
+			
+		</table>
+	</div>
+
+</body>
+
+
+</html>
